@@ -1,2 +1,2 @@
 import { createAction } from "@reduxjs/toolkit";
-export const setGetNewsApiPageNumber = createAction('home/getNewsApiPageNumber');
+export const setGetNewsApiPageNumber = createAction('home/setGetNewsApiPageNumber');

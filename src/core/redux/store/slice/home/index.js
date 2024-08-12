@@ -5,7 +5,7 @@ export const sliceName = 'home'
 
 const homeSlice = createSlice({
     name: sliceName,
-    initialState: { ...initialThunkState, getNewsApiPageNumber:1},
+    initialState: { ...initialThunkState, setGetNewsApiPageNumber:1},
     reducers: {
         setGetNewsApiPageNumber: (state, action) => {
           state.setGetNewsApiPageNumber = action.payload
@@ -59,4 +59,3 @@ const homeSlice = createSlice({
 
 export const homeReducer = homeSlice.reducer;
 export const homeInitialState = homeSlice.getInitialState();
-export const { setGetNewsApiPageNumber } = homeSlice.actions;

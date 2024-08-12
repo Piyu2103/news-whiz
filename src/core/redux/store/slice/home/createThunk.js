@@ -1,4 +1,4 @@
-import { getInitialThunkState } from '../../../networking/utils';
+import { getInitialThunkState } from '../../../../networking/utils';
 import {ACTION} from './actionConstants';
 
 //Add your initialStateKey here, data field is optional only add if data is not {}. This array is used to dynamically generate the initialState with all the states (isLoading....)
