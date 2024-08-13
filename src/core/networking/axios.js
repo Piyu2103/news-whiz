@@ -43,6 +43,7 @@ const api = async (payload )=> {
                 // include headers in the response if it exists, otherwise return only data
                 return responseHandler(response.data);
             } catch (error) {
+              console.log(error);
                 const errorCode = error?.response?.data?.code;
                 const errorStatus = error?.response?.status;
                 if(errorCode || errorStatus){

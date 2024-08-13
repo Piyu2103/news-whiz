@@ -2386,12 +2386,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-vector-icons/common@npm:^0.0.1-alpha.13":
-  version: 0.0.1-alpha.13
-  resolution: "@react-native-vector-icons/common@npm:0.0.1-alpha.13"
+"@react-native-vector-icons/common@npm:^0.0.1-alpha.19":
+  version: 0.0.1-alpha.19
+  resolution: "@react-native-vector-icons/common@npm:0.0.1-alpha.19"
   dependencies:
     "@react-native-community/cli-tools": ^13.6.9
-    chalk: ^5.3.0
+    picocolors: ^1.0.1
     plist: ^3.1.0
     prop-types: ^15.8.1
     yargs: ^17.7.2
@@ -2400,19 +2400,19 @@ __metadata:
     react-native: "*"
   bin:
     rnvi-update-plist: lib/commonjs/scripts/updatePlist.js
-  checksum: 889687b914bb9a09ae06cb02f509b06e4128b72de11d96a71c7d2e791e0ca3f01af9687b348e4c1edeef116004ee155cfa51a9baaf1abea1498f0846bfd1544b
+  checksum: 91516f6399b5bfeb779fc1b980af632e11d6502b7cf495fbcd319c2bdcfd0c69274a97c593e029a8c64d0a998aacd5456213d9708c686c4e6dea312d0b92b33d
   languageName: node
   linkType: hard
 
 "@react-native-vector-icons/ionicons@npm:^7.4.0-alpha.20":
-  version: 7.4.0-alpha.20
-  resolution: "@react-native-vector-icons/ionicons@npm:7.4.0-alpha.20"
+  version: 7.4.0-alpha.26
+  resolution: "@react-native-vector-icons/ionicons@npm:7.4.0-alpha.26"
   dependencies:
-    "@react-native-vector-icons/common": ^0.0.1-alpha.13
+    "@react-native-vector-icons/common": ^0.0.1-alpha.19
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 8dd1c77847e6fd511651f6324c7828300ba97cf017357e65069b04098a279263b01b9659bbd89f0d8d125af8635ec684af08d5fc1d5c831b8fd4969ac4489c4d
+  checksum: e3481cb17b3812d97b3bff071d6cca27778ac6827b68ff4ca6313e76166bac7a363adfc8b829ab39c9df9d26b3b523d72f3134b995c38b2f3f59b25b47cb49fe
   languageName: node
   linkType: hard
 
@@ -3221,7 +3221,9 @@ __metadata:
     "@types/react": ^18.2.6
     "@types/react-test-renderer": ^18.0.0
     axios: ^1.7.3
+    babel: ^6.23.0
     babel-jest: ^29.6.3
+    babel-plugin-react-native-config: ^0.0.3
     dotenv: ^16.4.5
     eslint: ^8.19.0
     jest: ^29.6.3
@@ -3235,6 +3237,7 @@ __metadata:
     react-native-render-html: ^6.3.4
     react-native-safe-area-context: ^4.10.8
     react-native-screens: ^3.34.0
+    react-native-swipe-list-view: ^3.2.9
     react-native-toast-message: ^2.2.0
     react-redux: ^9.1.2
     react-test-renderer: 18.2.0
@@ -3676,6 +3679,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-plugin-react-native-config@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "babel-plugin-react-native-config@npm:0.0.3"
+  dependencies:
+    dotenv: ^2.0.0
+  checksum: d786df75f9093ff9627b2dfec75f3ab98ca1a561122db949705e72749f272ec5ba32773121f436bc12d499c38c01261930eebb9fd447ae679524614fea1cdbd9
+  languageName: node
+  linkType: hard
+
 "babel-plugin-transform-flow-enums@npm:^0.0.2":
   version: 0.0.2
   resolution: "babel-plugin-transform-flow-enums@npm:0.0.2"
@@ -3716,6 +3728,17 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: aa4ff2a8a728d9d698ed521e3461a109a1e66202b13d3494e41eea30729a5e7cc03b3a2d56c594423a135429c37bf63a9fa8b0b9ce275298be3095a88c69f6fb
+  languageName: node
+  linkType: hard
+
+"babel@npm:^6.23.0":
+  version: 6.23.0
+  resolution: "babel@npm:6.23.0"
+  bin:
+    babel: ./lib/cli.js
+    babel-external-helpers: ./lib/cli.js
+    babel-node: ./lib/cli.js
+  checksum: 129af541cdfa010f09d7c6413a2e0b159f98605195ae05952dfef4d36de22b995536920c09f189676db2304d81faad8203ee787eb12029d89a9a59136beda488
   languageName: node
   linkType: hard
 
@@ -3930,13 +3953,6 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
-  languageName: node
-  linkType: hard
-
-"chalk@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "chalk@npm:5.3.0"
-  checksum: 623922e077b7d1e9dedaea6f8b9e9352921f8ae3afe739132e0e00c275971bdd331268183b2628cf4ab1727c45ea1f28d7e24ac23ce1db1eb653c414ca8a5a80
   languageName: node
   linkType: hard
 
@@ -4557,6 +4573,13 @@ __metadata:
   version: 16.4.5
   resolution: "dotenv@npm:16.4.5"
   checksum: 301a12c3d44fd49888b74eb9ccf9f07a1f5df43f489e7fcb89647a2edcd84c42d6bc349dc8df099cd18f07c35c7b04685c1a4f3e6a6a9e6b30f8d48c15b7f49c
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "dotenv@npm:2.0.0"
+  checksum: ccbb672b661fcf07fa826c632d4554fa387db77f2885bb94c71357970255f844ea34f76a202b328405144beb4d7140948e6205b321bbe3268368511b11733876
   languageName: node
   linkType: hard
 
@@ -5842,9 +5865,9 @@ __metadata:
   linkType: hard
 
 "ignore@npm:^5.0.5, ignore@npm:^5.2.0, ignore@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "ignore@npm:5.3.1"
-  checksum: 71d7bb4c1dbe020f915fd881108cbe85a0db3d636a0ea3ba911393c53946711d13a9b1143c7e70db06d571a5822c0a324a6bcde5c9904e7ca5047f01f1bf8cd3
+  version: 5.3.2
+  resolution: "ignore@npm:5.3.2"
+  checksum: 2acfd32a573260ea522ea0bfeff880af426d68f6831f973129e2ba7363f422923cf53aab62f8369cbf4667c7b25b6f8a3761b34ecdb284ea18e87a5262a865be
   languageName: node
   linkType: hard
 
@@ -8563,6 +8586,17 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 28c1f6e556c318ffcbd79d153b9612cc8a0b8d8b70f909d3cde2fd6d0586a7c151a449e57400d8996f4ee6c3b5140c5c4f643a427e974f6dc573b2bcd8eb7356
+  languageName: node
+  linkType: hard
+
+"react-native-swipe-list-view@npm:^3.2.9":
+  version: 3.2.9
+  resolution: "react-native-swipe-list-view@npm:3.2.9"
+  peerDependencies:
+    prop-types: ">=15.5.0"
+    react: ">=0.14.8"
+    react-native: ">=0.23.1"
+  checksum: e6fa7f60bcdffdffe0567144e01f4e53b78eff2dfb7f5bad0f560336d039afc5b02603281b5ef0c8b0de86f1cd94c50f943676f25c3f42cc390bedb02df9536d
   languageName: node
   linkType: hard
 

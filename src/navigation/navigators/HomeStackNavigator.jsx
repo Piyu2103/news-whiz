@@ -1,8 +1,8 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import { createStackNavigator} from '@react-navigation/stack';
-import Splash from '../../screens/splash/components/Splash';
-import Home from '../../screens/home/components/Home';
+import Splash from '../../screens/splash/Splash';
+import Home from '../../screens/home/Home';
 
 const HomeStackNavigator = () => {
   const Stack = createStackNavigator();
