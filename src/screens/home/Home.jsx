@@ -11,9 +11,9 @@ const Home = () => {
     const [displayedNews, setDisplayedNews] = useState([]);
     const [syncPressed,setSyncPressed]=useState(false);
     const [newsIndex, setNewsIndex] = useState(0);
-    const batchSize = 5;
+    const [batchSize,setBatchSize]=useState(5);
     const dispatch = useDispatch()
-    const [pinnedNews, setPinnedNews] = useState();
+    const [pinnedNews, setPinnedNews] = useState([]);
 
     useEffect(() => {
         if (latestNewsData?.articles) {
@@ -40,10 +40,16 @@ const Home = () => {
 
     const handlePin = (rowMap,index) => {
         // Pin the item, i.e., don't refresh it
-        setPinnedNews(displayedNews[index]);
+        const itemToPin = displayedNews[index];
+        setPinnedNews([itemToPin]);
+        setBatchSize(4);
+
+        // Remove pinned item from displayed news
+        const newDisplayedNews = displayedNews.filter((_, i) => i !== index);
+        setDisplayedNews(newDisplayedNews);
+
         rowMap[index]?.closeRow();
     };
-
 
     const getNewBatch = async ()=>{
         await getLatestNews(newsApiPageNumber);
@@ -123,7 +129,7 @@ const Home = () => {
             }
             
         }
-    }, [latestNewsData, newsIndex,syncPressed]);
+    }, [latestNewsData, newsIndex,syncPressed,batchSize]);
 
     const dateFormat = (inputDate) => {
         const dateObj = new Date(inputDate);
@@ -138,13 +144,13 @@ const Home = () => {
         return (
             <View style={styles.itemContainer}>
                 <View style={styles.titleView}>
-                    <Text style={styles.sourceText}>{item.source.name}</Text>
-                    <Text style={styles.dateText}>{dateFormat(item.publishedAt)}</Text>
+                    <Text style={styles.sourceText}>{item?.source?.name}</Text>
+                    <Text style={styles.dateText}>{dateFormat(item?.publishedAt)}</Text>
                 </View>
                 <View style={styles.contentView}>
                     <View style={styles.textContainer}>
-                        <Text style={styles.titleText}>{item.title}</Text>
-                        <Text style={styles.authorText}>{item.author}</Text>
+                        <Text style={styles.titleText}>{item?.title}</Text>
+                        <Text style={styles.authorText}>{item?.author}</Text>
                     </View>
                     <Image source={{ uri: item.urlToImage }} style={styles.image} />
                 </View>
@@ -166,7 +172,7 @@ const Home = () => {
             </View>
             <FlatListDivider/>
             <SwipeListView
-                data={displayedNews}
+                data={pinnedNews?.length?[...pinnedNews,...displayedNews]:displayedNews}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
                 rightOpenValue={-150}
@@ -258,7 +264,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 50,
-        height: '100%',
+        height: '70%',
         marginRight: 10,
     },
     pinButton: {
@@ -266,7 +272,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 50,
-        height: '100%',
+        height: '70%',
     },
     hiddenText: {
         color: '#fff',
