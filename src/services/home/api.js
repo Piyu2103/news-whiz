@@ -9,7 +9,7 @@ const API_KEY= Config.API_KEY
 
 export const getLatestNews = async (page) => {
     const { path, method } = serviceConfig.bss.endpoints.newsApi.getLatestNews;
-
+    console.log("@@@");
     const parameters = {
         queryParameters: {
             q:'*',

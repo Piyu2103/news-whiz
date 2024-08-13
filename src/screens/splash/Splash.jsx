@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import {useNavigation} from "@react-navigation/native"
-import { getLatestNews } from '../../../services/home/api';
+import { getLatestNews } from '../../services/home/api';
 import { useDispatch, useSelector } from "react-redux"
-import { setGetNewsApiPageNumber } from '../../../core/redux/store/slice/home/actions';
+import { setGetNewsApiPageNumber } from '../../core/redux/store/slice/home/actions';
 import Toast from 'react-native-toast-message';
 
  const  Splash = () => {
@@ -15,7 +15,7 @@ import Toast from 'react-native-toast-message';
   useEffect(()=>{
     const latestNewsApiCall=async()=>{
       try{
-        const res=getLatestNews(newsApiPageNumber);
+        const res=await getLatestNews(newsApiPageNumber);
         dispatch(setGetNewsApiPageNumber((newsApiPageNumber)+1));
       }catch{
         Toast.show({
@@ -45,7 +45,7 @@ import Toast from 'react-native-toast-message';
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
+        <Image source={require('../../assets/icon.png')} style={styles.image} />
       </View>
     </View>
   );
